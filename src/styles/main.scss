@@ -1,11 +1,9 @@
-// Variabel
 $color-white: #fff;
 $color-black: #000;
 $color-gray: #333;
 $color-yellow: #ffcc00;
 $color-dark-overlay: rgba(0, 0, 0, 0.5);
 
-// Mixin untuk ukuran touch target
 @mixin touch-target($width: 44px, $height: 44px) {
   min-width: $width;
   min-height: $height;
@@ -26,44 +24,49 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   height: 50px;
   background-color: $color-gray;
   color: $color-white;
-}
 
-.app-bar__brand-link {
-  color: $color-white;
-  text-decoration: none;
-}
+  &__brand-link {
+    color: $color-white;
+    text-decoration: none;
+  }
 
-.app-bar__nav {
-  display: flex;
-}
+  &__nav {
+    display: flex;
 
-.app-bar__nav.open {
-  display: block;
-}
+    &.open {
+      display: block;
+    }
 
-.app-bar__nav-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
+    &-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+    }
 
-.app-bar__nav-item {
-  margin-left: 10px;
-}
+    &-item {
+      margin-left: 10px;
+    }
 
-.app-bar__nav-link {
-  color: $color-white;
-  text-decoration: none;
+    &-link {
+      color: $color-white; 
+      text-decoration: none;
+    }
+    &-link:hover {
+      color: $color-yellow;
+    }
+  }
 }
 
 #hamburger {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   #hamburger {
     display: block;
+    color: $color-white;
+    text-decoration: none;
   }
 
   #drawer {
@@ -76,69 +79,67 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     z-index: 1000;
     transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
-  }
 
-  #drawer.open {
-    transform: translateX(0);
-  }
+    &.open {
+      transform: translateX(0);
+    }
 
-  .app-bar__nav-list {
-    padding: 20px;
-    display: block;
-  }
+    .app-bar__nav-list {
+      padding: 20px;
+      display: block;
 
-  .app-bar__nav-link {
-    display: block;
-    margin-bottom: 10px;
+      .app-bar__nav-link {
+        display: block;
+        margin-bottom: 10px;
+        color: $color-white;
+      }
+    }
   }
 }
 
-/* Styles untuk hero-element */
 .hero-element {
   width: 100%;
   height: 70vh;
-  max-width: 1000px; /* Maksimum lebar hero untuk mengontrol lebar konten */
-  margin: 0 auto; /* Posisikan hero di tengah halaman */
-  overflow: hidden; /* Menghindari gambar melebihi batas hero */
-  position: relative; /* Untuk menggunakan overlay efek gelap */
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
 
   &__image {
-    width: 100%; /* Gambar memiliki lebar 100% dari hero */
-    display: block; /* Atur agar gambar tampil sebagai blok */
-    object-fit: cover; /* Menyembunyikan aspek gambar yang tidak muat */
+    width: 100%;
+    display: block;
+    object-fit: cover;
   }
 
-  /* Efek gelap */
   &::before {
-    content: ''; /* Diperlukan untuk menggunakan pseudo-element */
-    position: absolute; /* Atur posisi secara absolut */
+    content: '';
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* Memiliki lebar yang sama dengan hero */
-    height: 100%; /* Memiliki tinggi yang sama dengan hero */
-    background-color: $color-dark-overlay; /* Warna overlay gelap */
+    width: 100%;
+    height: 100%;
+    background-color: $color-dark-overlay;
   }
 }
 
-/* CSS untuk gaya daftar restoran */
 .restaurant-list-container {
   width: 100%;
   margin-top: 50px;
-  text-align: center; /* Posisikan judul ke tengah */
+  text-align: center;
 }
 
 .restaurant-list-title {
-  margin-bottom: 50px; /* Berikan jarak antara judul dan daftar restoran */
+  margin-bottom: 50px;
 }
 
 .restaurant-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Posisikan daftar restoran ke tengah */
+  justify-content: center;
 }
 
 .restaurant-item {
-  width: calc(30% - 20px); /* Lebar item, dengan margin dihitung */
+  width: calc(30% - 20px);
   margin-bottom: 50px;
   margin-left: 20px;
   margin-right: 20px;
@@ -146,33 +147,30 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk efek zoom dan shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  @include touch-target; // Gunakan mixin touch-target untuk menetapkan ukuran target sentuhan
+  @include touch-target;
 }
 
 .restaurant-item:hover {
-  transform: scale(1.1); /* Efek zoom saat di-hover */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan saat di-hover */
+  transform: scale(1.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .restaurant-item__image-container {
-  overflow: hidden; /* Mengatur overflow menjadi hidden */
-  height: 410px; /* Tinggi container, disesuaikan dengan ukuran gambar */
+  overflow: hidden;
+  height: 410px;
 }
 
 .restaurant-item__image {
   width: auto;
-  height: 100%; /* Mengisi ketinggian container */
-  object-fit: cover; /* Menyembunyikan aspek gambar yang tidak muat */
+  height: 100%;
+  object-fit: cover;
 }
 
 .restaurant-item:hover .restaurant-item__image {
-  transform: scale(1.1); /* Mengubah skala gambar menjadi 110% saat di-hover */
-  transition: transform 0.3s ease; /* Efek transisi untuk perubahan skala */
+  transform: scale(1.1);
 }
-
-
 
 .restaurant-item__city {
   position: absolute;
@@ -200,25 +198,25 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
 .restaurant-item__info {
   padding: 15px;
   text-align: left;
-}
 
-.restaurant-item__name {
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+  &__name {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
 
-.restaurant-item__description {
-  margin-bottom: 5px;
+  &__description {
+    margin-bottom: 5px;
+  }
 }
 
 .recipe-list-container {
   width: 100%;
   margin-top: 50px;
-  text-align: center; /* Posisikan judul ke tengah */
+  text-align: center;
 }
 
 .recipe-list-title {
-  margin-bottom: 50px; /* Berikan jarak antara judul dan daftar resep */
+  margin-bottom: 50px;
 }
 
 .recipe-list {
@@ -227,11 +225,11 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Posisikan daftar resep ke tengah */
+  justify-content: center;
 }
 
 .recipe-item {
-  width: calc(30% - 20px); /* Lebar item, dengan margin dihitung */
+  width: calc(30% - 20px);
   margin-bottom: 50px;
   margin-left: 20px;
   margin-right: 20px;
@@ -239,32 +237,32 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk efek zoom dan shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-  @include touch-target; // Gunakan mixin touch-target untuk menetapkan ukuran target sentuhan
+  @include touch-target;
 }
 
 .recipe-item__image-container {
-  position: relative; /* Atur posisi menjadi relatif untuk anak-anak absolut */
-  overflow: hidden; /* Mengatur overflow menjadi hidden */
+  position: relative;
+  overflow: hidden;
 }
 
 .recipe-item__image {
-  width: 100%; /* Gambar memiliki lebar 100% dari container */
-  display: block; /* Atur agar gambar tampil sebagai blok */
-  object-fit: cover; /* Menyembunyikan aspek gambar yang tidak muat */
-  transition: transform 0.3s ease; /* Efek transisi untuk perubahan skala */
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
 .recipe-item__title {
-  position: absolute; /* Atur posisi menjadi absolut untuk overlay judul */
-  top: 0; /* Letakkan judul di bawah gambar */
+  position: absolute;
+  top: 0;
   left: 0;
-  width: 100%; /* Lebar judul yang sama dengan gambar */
-  background-color: rgba(0, 0, 0, 0.7); /* Warna latar belakang judul */
-  color: #fff; /* Warna teks judul */
-  padding: 10px; /* Padding untuk judul */
-  margin: 0; /* Reset margin */
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px;
+  margin: 0;
 }
 
 .recipe-item__info {
@@ -300,8 +298,7 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
 }
 
 .recipe-item:hover {
-  transform: scale(1.1); /* Efek zoom saat di-hover */
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan saat di-hover */
+  transform: scale(1.1);
 }
 
 .error-message {
@@ -310,33 +307,30 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   left: 50%;
   transform: translateX(-50%);
   padding: 10px;
-  background-color: #ffcccc; /* Warna latar belakang merah muda */
-  color: #cc0000; /* Warna teks merah */
-  border: 1px solid #cc0000; /* Garis tepi merah */
+  background-color: #ffcccc;
+  color: #cc0000;
+  border: 1px solid #cc0000;
   border-radius: 5px;
   font-size: 2rem;
-  z-index: 999; /* Atur z-index agar pesan kesalahan muncul di atas konten lain */
+  z-index: 999;
 }
 
-
-
-/* Style untuk footer */
 .footer {
-  background-color: $color-gray; /* Warna latar belakang footer */
-  color: $color-white; /* Warna teks */
-  padding: 20px 0; /* Padding atas dan bawah */
-  text-align: center; /* Teks berada di tengah */
+  background-color: $color-gray;
+  color: $color-white;
+  padding: 20px 0;
+  text-align: center;
 
-  @include touch-target; // Gunakan mixin touch-target untuk menetapkan ukuran target sentuhan
+  @include touch-target;
 }
 
 .footer-text {
-  font-size: 14px; /* Ukuran teks */
+  font-size: 14px;
 }
 
-/* Responsif */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
   .hero-element {
+    max-width: 100%;
     height: auto;
   }
 
@@ -344,7 +338,8 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     width: 100%;
     margin: 0;
   }
-  .restaurant-item:hover{
+
+  .restaurant-item:hover {
     transform: none;
     box-shadow: none;
   }
@@ -354,13 +349,13 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   }
 
   .restaurant-item__image-container {
-    width: 500; /* Tinggi container, disesuaikan dengan ukuran gambar */
+    width: auto;
     height: auto;
   }
-  
+
   .restaurant-item__image {
     width: 100%;
-    height: auto; /* Mengisi ketinggian container */
+    height: auto;
     object-fit: cover;
   }
 
@@ -389,22 +384,29 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     width: 100%;
   }
 
-  .recipe-item:hover{
+  .recipe-item:hover {
     transform: none;
+  }
+
+  .error-message {
+    width: calc(100% - 10px);
+    text-align: center;
   }
 }
 
-@media screen and (min-width: 501px) and (max-width: 768px) {
+@media screen and (min-width: 651px) and (max-width: 1200px) {
   .hero-element {
+    max-width: 100%;
     height: auto;
   }
+
   .restaurant-item {
     width: calc(45% - 10px);
     margin-left: 20;
     margin-right: 20px;
   }
 
-  .restaurant-item:hover{
+  .restaurant-item:hover {
     transform: none;
     box-shadow: none;
   }
@@ -414,13 +416,13 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   }
 
   .restaurant-item__image-container {
-    width: 500; /* Tinggi container, disesuaikan dengan ukuran gambar */
+    width: auto;
     height: auto;
   }
-  
+
   .restaurant-item__image {
     width: 100%;
-    height: auto; /* Mengisi ketinggian container */
+    height: auto;
     object-fit: cover;
   }
 
@@ -428,7 +430,7 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     width: calc(45% - 10px);
   }
 
-  .recipe-item:hover{
+  .recipe-item:hover {
     transform: none;
   }
 }
