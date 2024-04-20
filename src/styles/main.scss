@@ -5,6 +5,7 @@ $color-yellow: #ffcc00;
 $color-dark-overlay: rgba(0, 0, 0, 0.5);
 
 @mixin touch-target($width: 44px, $height: 44px) {
+  display: inline-block;
   min-width: $width;
   min-height: $height;
 }
@@ -18,16 +19,20 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
 
 .app-bar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 10px;
   height: 50px;
   background-color: $color-gray;
   color: $color-white;
+  line-height: 25px;
+  position: sticky;
+  top: 0;
+  z-index: 9999;
 
   &__brand-link {
     color: $color-white;
     text-decoration: none;
+    @include touch-target;
   }
 
   &__nav {
@@ -40,7 +45,7 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     &-list {
       list-style-type: none;
       padding: 0;
-      margin: 0;
+      margin-right: 30px;
       display: flex;
     }
 
@@ -51,11 +56,26 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     &-link {
       color: $color-white; 
       text-decoration: none;
-    }
-    &-link:hover {
-      color: $color-yellow;
+      @include touch-target;
+      &:hover {
+        color: $color-yellow;
+      }
     }
   }
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: #bf1722;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+ 
+.skip-link:focus {
+   top: 0;
 }
 
 #hamburger {
@@ -67,6 +87,7 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     display: block;
     color: $color-white;
     text-decoration: none;
+    @include touch-target;
   }
 
   #drawer {
@@ -92,10 +113,13 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
         display: block;
         margin-bottom: 10px;
         color: $color-white;
+        @include touch-target;
       }
     }
   }
 }
+
+
 
 .hero-element {
   width: 100%;
@@ -148,8 +172,6 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  @include touch-target;
 }
 
 .restaurant-item:hover {
@@ -238,8 +260,6 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  @include touch-target;
 }
 
 .recipe-item__image-container {
@@ -320,8 +340,6 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   color: $color-white;
   padding: 20px 0;
   text-align: center;
-
-  @include touch-target;
 }
 
 .footer-text {

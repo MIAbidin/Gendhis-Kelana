@@ -2,7 +2,6 @@ import 'regenerator-runtime'; /* for async await transpile */
 
 import '../styles/main.scss';
 
-import AppBar from './app-bar';
 import HeroElement from './hero-element';
 import RestaurantList from './list';
 import { fetchAllRecipes, createRecipeList } from './article-list.js';
@@ -37,9 +36,6 @@ window.addEventListener('load', checkInternetConnection);
 window.addEventListener('online', checkInternetConnection);
 window.addEventListener('offline', checkInternetConnection);
 
-
-const appContainer = document.getElementById('app');
-appContainer.innerHTML = AppBar();
 
 const toggleDrawer = () => {
   const drawer = document.getElementById('drawer');

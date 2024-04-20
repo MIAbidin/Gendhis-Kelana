@@ -6,13 +6,31 @@
   <title>Gendhis Kelana</title>
 </head>
 <body>
-  <div id="app"></div>
-  <div id="hero"></div>
-  <div id="restaurant-container"></div>
-  <ul id="article-list"></ul>
-  <div id="footer"></div>
+  <header class="app-bar">
+    <a id="hamburger" href="#" tabindex="0">☰</a>
+    <div class="app-bar__brand">
+      <a href="/" class="app-bar__brand-link" tabindex="-1">Gendhis Kelana</a>
+      <a href="#maincontent" class="skip-link" tabindex="0">Skip to content</a>
+    </div>
+    <nav id="drawer" class="app-bar__nav">
+      <ul class="app-bar__nav-list">
+        <li class="app-bar__nav-item"><a href="/" class="app-bar__nav-link" tabindex="0">Home</a></li>
+        <li class="app-bar__nav-item"><a href="#" class="app-bar__nav-link" tabindex="0">Favorite</a></li>
+        <li class="app-bar__nav-item"><a href="https://www.linkedin.com/in/muhammad-irfan-abidin-40b3a1223/" class="app-bar__nav-link" tabindex="0">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="maincontent">
+    <div id="hero"></div>
+    <div id="restaurant-container"></div>
+    <ul id="article-list"></ul>
+  </main>
+
+  <footer>
+    <div id="footer"></div>
+  </footer>
 
   <div id="error-message" class="error-message" style="display: none;"></div>
-
 </body>
 </html>
