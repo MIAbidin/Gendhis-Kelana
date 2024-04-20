@@ -1,0 +1,434 @@
+// Variabel
+$color-white: #fff;
+$color-black: #000;
+$color-gray: #333;
+$color-yellow: #ffcc00;
+$color-dark-overlay: rgba(0, 0, 0, 0.5);
+
+// Mixin untuk ukuran touch target
+@mixin touch-target($width: 44px, $height: 44px) {
+  min-width: $width;
+  min-height: $height;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.app-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  height: 50px;
+  background-color: $color-gray;
+  color: $color-white;
+}
+
+.app-bar__brand-link {
+  color: $color-white;
+  text-decoration: none;
+}
+
+.app-bar__nav {
+  display: flex;
+}
+
+.app-bar__nav.open {
+  display: block;
+}
+
+.app-bar__nav-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.app-bar__nav-item {
+  margin-left: 10px;
+}
+
+.app-bar__nav-link {
+  color: $color-white;
+  text-decoration: none;
+}
+
+#hamburger {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  #hamburger {
+    display: block;
+  }
+
+  #drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: $color-gray;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #drawer.open {
+    transform: translateX(0);
+  }
+
+  .app-bar__nav-list {
+    padding: 20px;
+    display: block;
+  }
+
+  .app-bar__nav-link {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+/* Styles untuk hero-element */
+.hero-element {
+  width: 100%;
+  height: 70vh;
+  max-width: 1000px; /* Maksimum lebar hero untuk mengontrol lebar konten */
+  margin: 0 auto; /* Posisikan hero di tengah halaman */
+  overflow: hidden; /* Menghindari gambar melebihi batas hero */
+  position: relative; /* Untuk menggunakan overlay efek gelap */
+
+  &__image {
+    width: 100%; /* Gambar memiliki lebar 100% dari hero */
+    display: block; /* Atur agar gambar tampil sebagai blok */
+    object-fit: cover; /* Menyembunyikan aspek gambar yang tidak muat */
+  }
+
+  /* Efek gelap */
+  &::before {
+    content: ''; /* Diperlukan untuk menggunakan pseudo-element */
+    position: absolute; /* Atur posisi secara absolut */
+    top: 0;
+    left: 0;
+    width: 100%; /* Memiliki lebar yang sama dengan hero */
+    height: 100%; /* Memiliki tinggi yang sama dengan hero */
+    background-color: $color-dark-overlay; /* Warna overlay gelap */
+  }
+}
+
+/* CSS untuk gaya daftar restoran */
+.restaurant-list-container {
+  width: 100%;
+  margin-top: 50px;
+  text-align: center; /* Posisikan judul ke tengah */
+}
+
+.restaurant-list-title {
+  margin-bottom: 50px; /* Berikan jarak antara judul dan daftar restoran */
+}
+
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Posisikan daftar restoran ke tengah */
+}
+
+.restaurant-item {
+  width: calc(30% - 20px); /* Lebar item, dengan margin dihitung */
+  margin-bottom: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 0;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk efek zoom dan shadow */
+
+  @include touch-target; // Gunakan mixin touch-target untuk menetapkan ukuran target sentuhan
+}
+
+.restaurant-item:hover {
+  transform: scale(1.1); /* Efek zoom saat di-hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan saat di-hover */
+}
+
+.restaurant-item__image-container {
+  overflow: hidden; /* Mengatur overflow menjadi hidden */
+  height: 410px; /* Tinggi container, disesuaikan dengan ukuran gambar */
+}
+
+.restaurant-item__image {
+  width: auto;
+  height: 100%; /* Mengisi ketinggian container */
+  object-fit: cover; /* Menyembunyikan aspek gambar yang tidak muat */
+}
+
+.restaurant-item:hover .restaurant-item__image {
+  transform: scale(1.1); /* Mengubah skala gambar menjadi 110% saat di-hover */
+  transition: transform 0.3s ease; /* Efek transisi untuk perubahan skala */
+}
+
+
+
+.restaurant-item__city {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: $color-dark-overlay;
+  color: $color-white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.restaurant-item__rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: $color-yellow;
+  color: $color-black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.restaurant-item__info {
+  padding: 15px;
+  text-align: left;
+}
+
+.restaurant-item__name {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.restaurant-item__description {
+  margin-bottom: 5px;
+}
+
+.recipe-list-container {
+  width: 100%;
+  margin-top: 50px;
+  text-align: center; /* Posisikan judul ke tengah */
+}
+
+.recipe-list-title {
+  margin-bottom: 50px; /* Berikan jarak antara judul dan daftar resep */
+}
+
+.recipe-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Posisikan daftar resep ke tengah */
+}
+
+.recipe-item {
+  width: calc(30% - 20px); /* Lebar item, dengan margin dihitung */
+  margin-bottom: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 0;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk efek zoom dan shadow */
+
+  @include touch-target; // Gunakan mixin touch-target untuk menetapkan ukuran target sentuhan
+}
+
+.recipe-item__image-container {
+  position: relative; /* Atur posisi menjadi relatif untuk anak-anak absolut */
+  overflow: hidden; /* Mengatur overflow menjadi hidden */
+}
+
+.recipe-item__image {
+  width: 100%; /* Gambar memiliki lebar 100% dari container */
+  display: block; /* Atur agar gambar tampil sebagai blok */
+  object-fit: cover; /* Menyembunyikan aspek gambar yang tidak muat */
+  transition: transform 0.3s ease; /* Efek transisi untuk perubahan skala */
+}
+
+.recipe-item__title {
+  position: absolute; /* Atur posisi menjadi absolut untuk overlay judul */
+  top: 0; /* Letakkan judul di bawah gambar */
+  left: 0;
+  width: 100%; /* Lebar judul yang sama dengan gambar */
+  background-color: rgba(0, 0, 0, 0.7); /* Warna latar belakang judul */
+  color: #fff; /* Warna teks judul */
+  padding: 10px; /* Padding untuk judul */
+  margin: 0; /* Reset margin */
+}
+
+.recipe-item__info {
+  position: absolute;
+  bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.recipe-item__price {
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  background-color: $color-dark-overlay;
+  color: $color-white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+.recipe-item__ready-time {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  background-color: $color-yellow;
+  color: $color-black;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+.recipe-item:hover {
+  transform: scale(1.1); /* Efek zoom saat di-hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan saat di-hover */
+}
+
+.error-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  background-color: #ffcccc; /* Warna latar belakang merah muda */
+  color: #cc0000; /* Warna teks merah */
+  border: 1px solid #cc0000; /* Garis tepi merah */
+  border-radius: 5px;
+  font-size: 2rem;
+  z-index: 999; /* Atur z-index agar pesan kesalahan muncul di atas konten lain */
+}
+
+
+
+/* Style untuk footer */
+.footer {
+  background-color: $color-gray; /* Warna latar belakang footer */
+  color: $color-white; /* Warna teks */
+  padding: 20px 0; /* Padding atas dan bawah */
+  text-align: center; /* Teks berada di tengah */
+
+  @include touch-target; // Gunakan mixin touch-target untuk menetapkan ukuran target sentuhan
+}
+
+.footer-text {
+  font-size: 14px; /* Ukuran teks */
+}
+
+/* Responsif */
+@media screen and (max-width: 500px) {
+  .hero-element {
+    height: auto;
+  }
+
+  .restaurant-item {
+    width: 100%;
+    margin: 0;
+  }
+  .restaurant-item:hover{
+    transform: none;
+    box-shadow: none;
+  }
+
+  .restaurant-item:hover .restaurant-item__image {
+    transform: none;
+  }
+
+  .restaurant-item__image-container {
+    width: 500; /* Tinggi container, disesuaikan dengan ukuran gambar */
+    height: auto;
+  }
+  
+  .restaurant-item__image {
+    width: 100%;
+    height: auto; /* Mengisi ketinggian container */
+    object-fit: cover;
+  }
+
+  .restaurant-item__city,
+  .restaurant-item__rating {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .restaurant-item__info {
+    padding: 10px;
+    margin-top: 0;
+  }
+
+  .restaurant-item__name {
+    margin-bottom: 3px;
+    font-size: 14px;
+  }
+
+  .restaurant-item__description {
+    margin-bottom: 3px;
+    font-size: 12px;
+  }
+
+  .recipe-item {
+    width: 100%;
+  }
+
+  .recipe-item:hover{
+    transform: none;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 768px) {
+  .hero-element {
+    height: auto;
+  }
+  .restaurant-item {
+    width: calc(45% - 10px);
+    margin-left: 20;
+    margin-right: 20px;
+  }
+
+  .restaurant-item:hover{
+    transform: none;
+    box-shadow: none;
+  }
+
+  .restaurant-item:hover .restaurant-item__image {
+    transform: none;
+  }
+
+  .restaurant-item__image-container {
+    width: 500; /* Tinggi container, disesuaikan dengan ukuran gambar */
+    height: auto;
+  }
+  
+  .restaurant-item__image {
+    width: 100%;
+    height: auto; /* Mengisi ketinggian container */
+    object-fit: cover;
+  }
+
+  .recipe-item {
+    width: calc(45% - 10px);
+  }
+
+  .recipe-item:hover{
+    transform: none;
+  }
+}

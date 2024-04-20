@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+
+.app-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+}
+
+.app-bar__brand-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.app-bar__nav {
+  display: flex;
+}
+
+.app-bar__nav.open {
+  display: block;
+}
+
+.app-bar__nav-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.app-bar__nav-item {
+  margin-left: 10px;
+}
+
+.app-bar__nav-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+#hamburger {
+  display: none;
+}
+
+/* Styles untuk hero-element */
+.hero-element {
+  width: 100%;
+  height: 70vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-element__image {
+  width: 100%; 
+  display: block;
+  object-fit: cover;
+}
+
+/* Efek gelap */
+.hero-element::before {
+  content: ''; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Memiliki lebar yang sama dengan hero */
+  height: 100%; /* Memiliki tinggi yang sama dengan hero */
+  background-color: rgba(0, 0, 0, 0.5); /* Warna overlay gelap */
+}
+
+
+/* CSS untuk gaya daftar restoran */
+.restaurant-list-container {
+  width: 100%;
+  margin-top: 50px;
+  text-align: center; /* Posisikan judul ke tengah */
+}
+
+.restaurant-list-title {
+  margin-bottom: 20px; /* Berikan jarak antara judul dan daftar restoran */
+}
+
+.restaurant-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Posisikan daftar restoran ke tengah */
+}
+.restaurant-item {
+  width: calc(33.3333% - 20px); /* Lebar item, dengan margin dihitung */
+  margin-bottom: 20px; /* Jarak antar item */
+  margin-left: 20px;
+  padding: 0;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.restaurant-item__image {
+  height: 400px;
+  width: auto;
+  object-fit: cover; /* Menyembunyikan aspek gambar yang tidak muat */
+}
+
+.restaurant-item__city {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.restaurant-item__rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ffcc00;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.restaurant-item__info {
+  padding: 15px;
+  text-align: left;
+}
+
+.restaurant-item__name {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.restaurant-item__description {
+  margin-bottom: 5px;
+}
+
+
+/* Style untuk footer */
+.footer {
+  background-color: #333; /* Warna latar belakang footer */
+  color: #fff; /* Warna teks */
+  padding: 20px 0; /* Padding atas dan bawah */
+  text-align: center; /* Teks berada di tengah */
+}
+
+.footer-text {
+  font-size: 14px; /* Ukuran teks */
+}
+
+
+/* Responsif */
+@media screen and (max-width: 768px) {
+  #hamburger {
+    display: block;
+  }
+
+  #drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #333;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  #drawer.open {
+    transform: translateX(0);
+  }
+
+  .app-bar__nav-list {
+    padding: 20px;
+    display: block;
+  }
+
+  .app-bar__nav-link {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hero-element {
+    height: auto;
+  }
+
+  .restaurant-item {
+    width: 100%;
+    margin-left: 0;
+
+  }
+
+  .restaurant-item__image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .restaurant-item__city,
+  .restaurant-item__rating {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .restaurant-item__info {
+    padding: 10px;
+  }
+
+  .restaurant-item__name {
+    margin-bottom: 3px;
+    font-size: 14px;
+  }
+
+  .restaurant-item__description {
+    margin-bottom: 3px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 768px) {
+  .hero-element {
+    height: auto;
+  }
+  .restaurant-item {
+    width: calc(50% - 10px);
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .restaurant-item__image {
+    height: 270px;
+    width: auto;
+    object-fit: cover;
+  }
+}
