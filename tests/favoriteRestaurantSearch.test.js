@@ -149,7 +149,7 @@ describe('Searching restaurants', () => {
   describe('When no favorite restaurants could be found', () => {
     it('should show the empty message', (done) => {
       document.getElementById('restaurants').addEventListener('restaurants:updated', () => {
-        expect(document.querySelectorAll('.restaurant-item__not__found').length).toEqual(1);
+        expect(document.querySelectorAll('.no-restaurants-container').length).toEqual(1);
 
         done();
       });

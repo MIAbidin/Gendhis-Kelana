@@ -27,7 +27,7 @@ describe('Showing all favorite restaurants', () => {
       const restaurants = [];
       presenter._displayRestaurants(restaurants);
 
-      expect(document.querySelectorAll('.restaurant-item__not__found').length).toEqual(1);
+      expect(document.querySelectorAll('.no-restaurants-container').length).toEqual(1);
     });
 
     it('should ask for the favorite restaurants', () => {
