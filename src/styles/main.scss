@@ -516,6 +516,53 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   color: #888;
 }
 
+.skeleton {
+  background-color: #f3f3f3;
+}
+
+.skeleton-text {
+  height: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 4px;
+}
+
+.skeleton-block {
+  height: 1em;
+  margin-bottom: 1em;
+  border-radius: 4px;
+}
+
+.app-main__content.skeleton {
+  padding: 0;
+}
+
+.restaurant-item.skeleton {
+  border: 1px solid transparent;
+  box-shadow: none;
+}
+
+.restaurant-item__header.skeleton {
+  height: 150px;
+}
+
+.restaurant-item__header__poster.skeleton {
+  height: 100%;
+}
+
+.restaurant-item__content.skeleton {
+  padding: 16px;
+}
+
+.loading .skeleton {
+  animation: skeleton-loading 1.5s infinite ease-in-out;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+
 .footer {
   background-color: $color-gray;
   color: $color-white;
