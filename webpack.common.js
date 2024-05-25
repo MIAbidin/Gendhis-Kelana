@@ -5,6 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
 const ImageminMozjpeg = require('imagemin-mozjpeg');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   entry: {
@@ -21,9 +22,9 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          "style-loader",
-          "css-loader",
-          "sass-loader",
+          'style-loader',
+          'css-loader',
+          'sass-loader',
         ],
       },
     ],
@@ -68,5 +69,7 @@ module.exports = {
         }),
       ],
     }),
+
+    new BundleAnalyzerPlugin(),
   ],
 };

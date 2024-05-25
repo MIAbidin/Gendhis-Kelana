@@ -5,8 +5,9 @@ import 'regenerator-runtime';
 import '../styles/main.scss';
 import App from './views/app';
 import swRegister from './utils/sw-register';
-import '../animasi/animations';
 import Footer from './views/components/footer';
+
+import('../animasi/animations');
 
 const app = new App({
   button: document.querySelector('#hamburger'),
@@ -18,8 +19,8 @@ window.addEventListener('hashchange', () => {
   app.renderPage();
 });
 
-window.addEventListener('load', () => {
-  app.renderPage();
+window.addEventListener('load', async () => {
+  await app.renderPage();
   swRegister();
 });
 
