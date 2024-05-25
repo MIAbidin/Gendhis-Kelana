@@ -3,11 +3,16 @@ import { createRestaurantItemTemplate } from '../../templates/template-creator';
 class FavoriteRestaurantView {
   getTemplate() {
     return `
-        <div class="app-main__content">
-            <input id="query" type="text">
-            <h2 class="content__heading">Your Liked Restaurants</h2>
-            <div id="restaurants" class="restaurant-list"></div>
+      <div class="app-main__content">
+        <div class="search-container">
+            <input id="query" type="text" placeholder="Search for restaurants...">
+            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
         </div>
+        <h2 class="content__heading">Your Liked Restaurants</h2>
+        <div id="restaurants" class="restaurant-list">
+        </div>
+      </div>
+
     `;
   }
 

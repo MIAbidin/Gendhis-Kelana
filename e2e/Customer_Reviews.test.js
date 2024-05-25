@@ -8,7 +8,7 @@ Before(({ I }) => {
 
 Scenario('adding a customer review to a restaurant', async ({ I }) => {
   I.seeElement('.restaurant__name a');
-  const restaurantIndex = 2; // misalnya, restoran kedua
+  const restaurantIndex = 2;
   const restaurantSelector = locate('.restaurant__name a').at(restaurantIndex);
   const restaurantName = await I.grabTextFrom(restaurantSelector);
   I.click(restaurantSelector);
