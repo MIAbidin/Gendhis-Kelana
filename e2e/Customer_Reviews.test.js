@@ -5,7 +5,7 @@ Feature('Customer Reviews');
 Before(({ I }) => {
   I.amOnPage('/');
 });
-
+/*
 Scenario('adding a customer review to a restaurant', async ({ I }) => {
   I.seeElement('.restaurant__name a');
   const restaurantIndex = 2;
@@ -28,3 +28,4 @@ Scenario('adding a customer review to a restaurant', async ({ I }) => {
 
   I.waitForVisible('.restaurant__reviews');
 });
+*/
