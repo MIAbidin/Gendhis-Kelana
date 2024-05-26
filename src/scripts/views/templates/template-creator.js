@@ -1,4 +1,4 @@
-import CONFIG from '../../globals/config';
+import CONFIG from '../../globals/config'
 
 const createRestaurantDetailTemplate = (restaurant) => `
   <h2 class="restaurant__title">${restaurant.name}</h2>
@@ -59,7 +59,7 @@ const createRestaurantDetailTemplate = (restaurant) => `
       <button type="submit" class="submit-review-button">Submit</button>
     </form>
   </div>
-`;
+`
 
 const createRestaurantItemTemplate = (restaurant) => `
   <div class="restaurant-item">
@@ -78,23 +78,23 @@ const createRestaurantItemTemplate = (restaurant) => `
       <p>${restaurant.description || '-'}</p>
     </div>
   </div>
-`;
+`
 
 const createLikeRestaurantButtonTemplate = () => `
   <button aria-label="like this restaurant" id="likeButton" class="like">
     <i class="fa fa-heart-o" aria-hidden="true"></i>
   </button>
-`;
+`
 
 const createUnlikeRestaurantButtonTemplate = () => `
   <button aria-label="unlike this restaurant" id="likeButton" class="like">
     <i class="fa fa-heart" aria-hidden="true"></i>
   </button>
-`;
+`
 
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
   createLikeRestaurantButtonTemplate,
-  createUnlikeRestaurantButtonTemplate,
-};
+  createUnlikeRestaurantButtonTemplate
+}

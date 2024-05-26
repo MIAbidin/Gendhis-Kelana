@@ -1,7 +1,7 @@
-import { createRestaurantItemTemplate } from '../../templates/template-creator';
+import { createRestaurantItemTemplate } from '../../templates/template-creator'
 
 class FavoriteRestaurantView {
-  getTemplate() {
+  getTemplate () {
     return `
       <div class="app-main__content">
         <div class="search-container">
@@ -13,35 +13,35 @@ class FavoriteRestaurantView {
         </div>
       </div>
 
-    `;
+    `
   }
 
-  runWhenUserIsSearching(callback) {
+  runWhenUserIsSearching (callback) {
     document.getElementById('query').addEventListener('change', (event) => {
-      callback(event.target.value);
-    });
+      callback(event.target.value)
+    })
   }
 
-  showFavoriteRestaurants(restaurants) {
-    let html;
+  showFavoriteRestaurants (restaurants) {
+    let html
     if (restaurants.length) {
-      html = restaurants.reduce((carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)), '');
+      html = restaurants.reduce((carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)), '')
     } else {
-      html = this._getEmptyRestaurantTemplate();
+      html = this._getEmptyRestaurantTemplate()
     }
 
-    document.getElementById('restaurants').innerHTML = html;
+    document.getElementById('restaurants').innerHTML = html
 
-    document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'));
+    document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'))
   }
 
-  _getEmptyRestaurantTemplate() {
+  _getEmptyRestaurantTemplate () {
     return `
       <div class="no-restaurants-container">
         Tidak ada restoran untuk ditampilkan
       </div>
-    `;
+    `
   }
 }
 
-export default FavoriteRestaurantView;
+export default FavoriteRestaurantView

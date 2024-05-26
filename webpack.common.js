@@ -1,21 +1,21 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
-const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
-const ImageminMozjpeg = require('imagemin-mozjpeg');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default
+const ImageminMozjpeg = require('imagemin-mozjpeg')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
   entry: {
     app: path.resolve(__dirname, 'src/scripts/index.js'),
-    animations: path.resolve(__dirname, 'src/animasi/animations.js'),
+    animations: path.resolve(__dirname, 'src/animasi/animations.js')
   },
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    clean: true,
+    clean: true
   },
   module: {
     rules: [
@@ -24,17 +24,17 @@ module.exports = {
         use: [
           'style-loader',
           'css-loader',
-          'sass-loader',
-        ],
-      },
-    ],
+          'sass-loader'
+        ]
+      }
+    ]
   },
   plugins: [
     new CleanWebpackPlugin(),
 
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(__dirname, 'src/templates/index.html'),
+      template: path.resolve(__dirname, 'src/templates/index.html')
     }),
     new CopyWebpackPlugin({
       patterns: [
@@ -42,10 +42,10 @@ module.exports = {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
           globOptions: {
-            ignore: ['**/images/**'],
-          },
-        },
-      ],
+            ignore: ['**/images/**']
+          }
+        }
+      ]
     }),
 
     new WorkboxWebpackPlugin.GenerateSW({
@@ -55,21 +55,21 @@ module.exports = {
           urlPattern: ({ url }) => url.href.startsWith('https://restaurant-api.dicoding.dev/'),
           handler: 'StaleWhileRevalidate',
           options: {
-            cacheName: 'restaurant-api',
-          },
-        },
-      ],
+            cacheName: 'restaurant-api'
+          }
+        }
+      ]
     }),
 
     new ImageminWebpackPlugin({
       plugins: [
         ImageminMozjpeg({
           quality: 50,
-          progressive: true,
-        }),
-      ],
+          progressive: true
+        })
+      ]
     }),
 
-    new BundleAnalyzerPlugin(),
-  ],
-};
+    new BundleAnalyzerPlugin()
+  ]
+}

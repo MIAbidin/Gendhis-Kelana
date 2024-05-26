@@ -1,31 +1,27 @@
-const assert = require('assert');
-
-Feature('Customer Reviews');
+Feature('Customer Reviews')
 
 Before(({ I }) => {
-  I.amOnPage('/');
-});
-/*
+  I.amOnPage('/')
+})
+
 Scenario('adding a customer review to a restaurant', async ({ I }) => {
-  I.seeElement('.restaurant__name a');
-  const restaurantIndex = 2;
-  const restaurantSelector = locate('.restaurant__name a').at(restaurantIndex);
-  const restaurantName = await I.grabTextFrom(restaurantSelector);
-  I.click(restaurantSelector);
+  I.seeElement('.restaurant__name a')
+  const restaurantIndex = 3
+  const restaurantSelector = locate('.restaurant__name a').at(restaurantIndex)
+  I.click(restaurantSelector)
 
-  I.seeElement('#reviewForm');
+  I.seeElement('#reviewForm')
 
-  const reviewName = 'Irfan';
-  const reviewText = 'Nice Food';
+  const reviewName = 'test'
+  const reviewText = 'Nice Food'
 
-  I.clearField('#reviewName');
-  I.clearField('#reviewText');
+  I.clearField('#reviewName')
+  I.clearField('#reviewText')
 
-  I.fillField('#reviewName', reviewName);
-  I.fillField('#reviewText', reviewText);
+  I.fillField('#reviewName', reviewName)
+  I.fillField('#reviewText', reviewText)
 
-  I.forceClick('.submit-review-button');
+  I.forceClick('.submit-review-button')
 
-  I.waitForVisible('.restaurant__reviews');
-});
-*/
+  I.waitForVisible('.restaurant__reviews')
+})

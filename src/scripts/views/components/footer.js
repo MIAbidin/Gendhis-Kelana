@@ -4,6 +4,6 @@ const Footer = () => `
         <p class="footer-text">Copyright © ${new Date().getFullYear()} - Gendhis Kelana</p>
       </div>
     </footer>
-  `;
+  `
 
-export default Footer;
+export default Footer

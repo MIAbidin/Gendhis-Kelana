@@ -7,7 +7,7 @@
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
     "serve": "http-server dist --port 9000",
-    "lint": "eslint .",
+    "lint": "eslint  ./src",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "e2e": "codeceptjs run --steps",

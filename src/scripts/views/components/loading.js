@@ -1,9 +1,9 @@
 class LoadingIndicator extends HTMLElement {
-  connectedCallback() {
+  connectedCallback () {
     this.innerHTML = `
       <div class="loading">Loading...</div>
-    `;
+    `
   }
 }
 
-customElements.define('loading-indicator', LoadingIndicator);
+customElements.define('loading-indicator', LoadingIndicator)

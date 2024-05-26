@@ -1,9 +1,9 @@
 class NoRestaurantsMessage extends HTMLElement {
-  connectedCallback() {
+  connectedCallback () {
     this.innerHTML = `
       <div class="no-restaurants">No restaurants found.</div>
-    `;
+    `
   }
 }
 
-customElements.define('no-restaurants-message', NoRestaurantsMessage);
+customElements.define('no-restaurants-message', NoRestaurantsMessage)
