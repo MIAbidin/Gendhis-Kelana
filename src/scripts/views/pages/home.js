@@ -7,7 +7,7 @@ import '../components/no-found-message'
 const Home = {
   async render () {
     return `
-      <section class="app-main__hero">
+      <section class="app-main__hero" loading="lazy">
         <p class="app-main__hero__content">Welcome to Culinary Adventure!</p>
       </section>
       <section class="app-main__content">

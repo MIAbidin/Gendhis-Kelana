@@ -8,7 +8,7 @@ class FavoriteRestaurantView {
             <input id="query" type="text" placeholder="Search for restaurants...">
             <button type="submit" class="search-button" aria-label="Search"><i class="fa fa-search"></i></button>
         </div>
-        <h2 class="content__heading">Your Liked Restaurants</h2>
+        <h2 class="content__heading lazyload">Your Liked Restaurants</h2>
         <div id="restaurants" class="restaurant-list">
         </div>
       </div>

@@ -6,6 +6,7 @@ const WorkboxWebpackPlugin = require('workbox-webpack-plugin')
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default
 const ImageminMozjpeg = require('imagemin-mozjpeg')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -13,7 +14,7 @@ module.exports = {
     animations: path.resolve(__dirname, 'src/animasi/animations.js')
   },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].[contenthash].bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true
   },
@@ -70,7 +71,16 @@ module.exports = {
       ]
     }),
 
-    new BundleAnalyzerPlugin()
+    new BundleAnalyzerPlugin(),
+
+    new CompressionWebpackPlugin({
+      filename: '[path][base].gz[query]',
+      algorithm: 'gzip',
+      test: /\.(js|css|html|svg)$/,
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: false
+    })
   ],
   optimization: {
     splitChunks: {
