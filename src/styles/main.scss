@@ -56,10 +56,11 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     }
 
     &-link {
-      color: $color-white; 
+      color: $color-white;
       text-decoration: none;
       @include touch-target;
       font-size: 1.2rem;
+
       &:hover {
         color: $color-yellow;
       }
@@ -76,9 +77,9 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   padding: 8px;
   z-index: 100;
 }
- 
+
 .skip-link:focus {
-   top: 0;
+  top: 0;
 }
 
 #hamburger {
@@ -123,7 +124,7 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
 }
 
 .app-main__hero {
-  background-image: url(../public/images/heros/hero-image_2.jpg);
+  background-image: url(../public/images/heros/hero-image_2-large.jpg);
   position: relative;
   display: flex;
   align-items: center;
@@ -166,29 +167,31 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     margin: 0 auto 20px;
 
     input[type="text"] {
-        flex: 1;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px 0 0 5px;
-        font-size: 16px;
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px 0 0 5px;
+      font-size: 16px;
     }
 
     .search-button {
-        padding: 10px 15px;
-        background-color: #007bff;
-        border: none;
-        border-radius: 0 5px 5px 0;
-        color: white;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+      padding: 10px 15px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 0 5px 5px 0;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
 
-        &:hover {
-            background-color: #0056b3;
-        }
+      &:hover {
+        background-color: #0056b3;
+      }
 
-        i {
-            font-size: 18px;
-        }
+      img {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
 
@@ -232,8 +235,8 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
           padding: 4px 8px;
           border-radius: 4px;
           font-size: 12px;
-          color: #fff;
-          background-color: rgba(0, 0, 0, 0.5);
+          color: #ffffff;
+          background-color: rgba(0, 0, 0, 0.7);
         }
 
         &__address {
@@ -259,6 +262,7 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
           a {
             text-decoration: none;
             color: #333;
+            @include touch-target;
 
             &:hover {
               text-decoration: underline;
@@ -303,13 +307,16 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
 
-  &__info, &__overview, &__menu, &__reviews, &__add-review {
+  &__info,
+  &__overview,
+  &__menu,
+  &__reviews,
+  &__add-review {
     background-color: #ffffff;
     padding: 24px;
     border-radius: 12px;
     margin-bottom: 24px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out;
 
     &:hover {
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
@@ -354,7 +361,8 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
       display: flex;
       justify-content: center;
 
-      &__food, &__drink {
+      &__food,
+      &__drink {
         width: 48%;
 
         h4 {
@@ -402,7 +410,6 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     border-radius: 8px;
     background: #f5f5f5;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
 
     &:hover {
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
@@ -445,7 +452,8 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
         font-size: 1.1rem;
       }
 
-      input, textarea {
+      input,
+      textarea {
         width: 100%;
         padding: 8px;
         border: 1px solid #ddd;
@@ -453,7 +461,7 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
         font-size: 1rem;
         color: #2c3e50;
         background-color: #f9f9f9;
-        transition: border-color 0.3s ease-in-out;
+        @include touch-target;
 
         &:focus {
           border-color: #3498db;
@@ -474,7 +482,7 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
       border: none;
       border-radius: 4px;
       cursor: pointer;
-      transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+      @include touch-target;
 
       &:hover {
         background-color: #2980b9;
@@ -495,29 +503,48 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   align-items: center;
   justify-content: center;
   background-color: #db0000;
-  color: white;
-  font-size: 18px;
+  border: none;
   cursor: pointer;
 
   position: fixed;
+  border-radius: 50%;
   bottom: 46px;
   right: 16px;
-  border-radius: 50%;
-  border: 0;
   z-index: 9999;
 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.like:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
+  .icon {
+    width: 30px;
+    height: auto;
+  }
 
-.like:active {
-  transform: scale(0.95);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  &:hover .icon {
+    transform: scale(1.1);
+  }
+
+  &:active .icon {
+    transform: scale(0.95);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #db0000;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+  }
+
+  &:hover::before {
+    opacity: 0.2;
+  }
+
+  &:active::before {
+    opacity: 0.4;
+  }
 }
 
 .loading {
@@ -592,8 +619,13 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
 }
 
 @keyframes skeleton-loading {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
 }
 
 
@@ -614,6 +646,7 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
     height: auto;
     background-image: url(../public/images/heros/hero-image_2-small.jpg);
   }
+
   .restaurant {
     .restaurant__title {
       font-size: 1.8rem;
@@ -629,8 +662,9 @@ $color-dark-overlay: rgba(0, 0, 0, 0.5);
   .hero-element {
     max-width: 100%;
     height: auto;
-    background-image: url(../public/images/heros/hero-image_2-small.jpg);
+    background-image: url(../public/images/heros/hero-image_2-large.jpg);
   }
+
   .restaurant {
     .restaurant__title {
       font-size: 2rem;

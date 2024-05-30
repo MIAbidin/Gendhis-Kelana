@@ -10,8 +10,7 @@ const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
 module.exports = {
   entry: {
-    app: path.resolve(__dirname, 'src/scripts/index.js'),
-    animations: path.resolve(__dirname, 'src/animasi/animations.js')
+    app: path.resolve(__dirname, 'src/scripts/index.js')
   },
   output: {
     filename: '[name].[contenthash].bundle.js',
@@ -57,6 +56,13 @@ module.exports = {
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'restaurant-api'
+          }
+        },
+        {
+          urlPattern: /\/fontawesome\/.*/,
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'font-awesome-icons'
           }
         }
       ]

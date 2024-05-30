@@ -65,7 +65,7 @@ const createRestaurantItemTemplate = (restaurant) => `
   <div class="restaurant-item">
     <div class="restaurant-item__header">
       <img class="restaurant-item__header__poster lazyload" alt="${restaurant.name || '-'}"
-          src="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}">
+          data-src="${restaurant.pictureId ? CONFIG.BASE_IMAGE_URL + restaurant.pictureId : 'https://picsum.photos/id/666/800/450?grayscale'}">
       <div class="restaurant-item__header__address">
         ${restaurant.city || '-'}
       </div>
@@ -81,14 +81,15 @@ const createRestaurantItemTemplate = (restaurant) => `
 `
 
 const createLikeRestaurantButtonTemplate = () => `
-  <button aria-label="like this restaurant" id="likeButton" class="like">
-    <i class="fa fa-heart-o" aria-hidden="true"></i>
+  <button aria-label="like this restaurant" id="likeButton" class="like" aria-label="like">
+    <img src="/fontawesome/heart-regular.svg" alt="like icon" class="icon">
   </button>
+
 `
 
 const createUnlikeRestaurantButtonTemplate = () => `
-  <button aria-label="unlike this restaurant" id="likeButton" class="like">
-    <i class="fa fa-heart" aria-hidden="true"></i>
+  <button aria-label="unlike this restaurant" id="likeButton" class="like" aria-label="unlike">
+    <img src="/fontawesome/heart-solid.svg" alt="unlike icon" class="icon">
   </button>
 `
 
